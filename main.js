@@ -13,7 +13,7 @@ var app = http.createServer((req, res) => {
     // 메인 홈페이지 방문
     if (_url.href == baseURL) {
         var title = '어떤게 고민이세요?';
-        var template = temp.getTemplate(title, '');
+        var template = temp.getTemplate(title, '', '랜덤뽑기');
         res.writeHead(200);
         res.end(template);
     }

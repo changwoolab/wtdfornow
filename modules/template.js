@@ -1,5 +1,5 @@
 var operation = {
-        getTemplate: function(title, description) {
+        getTemplate: function(title, description, retryOrTry) {
         return `
         <!DOCTYPE html>
         <html lang="kr">
@@ -21,7 +21,7 @@ var operation = {
                 <div class="mt-4 mx-auto search-bar input-group mb-3">
                     <input name="id" type="text" class="form-control rounded-pill" placeholder="품목 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
                 </div>
-                <input type="submit">
+                <input type="submit" value=${retryOrTry}>
             </form>
             ${description}
             </body>
