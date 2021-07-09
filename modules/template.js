@@ -11,7 +11,7 @@ var operation = {
             <script src="random.js" type="text/javascript"></script>
         </head>
         <body>
-            <h1>${title}</h1>
+            <a href="/"><button type="button">${title}</button></a><br>
             <a href="/?id=eat"><button type="button" class="btn btn-secondary">음식완전랜덤뽑기</button></a>
             <a href="/?id=lotto"><button type="button" class="btn btn-secondary">로또번호랜덤뽑기</button></a>
             <p>고민되는 품목들을 열거해주세요</p>
