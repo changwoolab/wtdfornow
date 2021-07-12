@@ -8,7 +8,6 @@ var operation = {
             <title>선택장애해결기</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
             <link rel="stylesheet" href="css/style.css">
-            <script src="random.js" type="text/javascript"></script>
         </head>
         <body>
             <a href="/"><button type="button">${title}</button></a><br>
@@ -17,13 +16,24 @@ var operation = {
             <p>고민되는 품목들을 열거해주세요</p>
             <p>띄어쓰기로 각 품목들을 구분해주세요</p>
             <p>EX) 자갈치 꼬깔콘 다이제 초코송이</p>
-            <form action="/?id=res" method="post">
+            <form action="/res" method="post">
                 <div class="mt-4 mx-auto search-bar input-group mb-3">
                     <input name="id" type="text" class="form-control rounded-pill" placeholder="품목 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
                 </div>
                 <input type="submit" value=${retryOrTry}>
             </form>
             ${description}
+            <br><br><br><br><br><br>
+            <p>피드백 주기</p>
+            <form action="/feedback" method="post">
+                <div>
+                    <input type="text" name="title" placeholder="피드백 제목">
+                </div>
+                <div>
+                    <textarea name="description" placeholder="피드백 내용"></textarea>
+                </div>
+                    <input type="submit" value="제출">
+            </form>
             </body>
         </html>
         `

@@ -6,16 +6,17 @@ const temp = require('./modules/template.js');
 const rand = require('./modules/random.js');
 
 function output(list, string, res) {
-    var title = '어떤게 고민이세요?';
+    var title = 'What is matter?';
     var template = temp.getTemplate(title, `${list}`, string);
     res.writeHead(200);
     res.end(template);
 }
 
-var app = http.createServer((req, res) => {
+var app = http.createServer(function(req, res) {
     // url 가져오기
     const baseURL = 'http://' + req.headers.host + '/';
     var _url = new URL(req.url, baseURL);
+    console.log(_url);
     var queryData = _url.searchParams.get('id');
     // 메인 홈페이지 방문
     if (_url.href == baseURL) {
@@ -39,14 +40,28 @@ var app = http.createServer((req, res) => {
         output(lottolist, '랜덤뽑기', res);
     }
     // 리스트에서 랜덤 뽑기
-    else if (queryData == 'res') {
+    else if (_url.pathname == '/res') {
         var body = '';
         req.on('data', (data) => {body += data});
         req.on('end', () => {
-            var post = qs.parse(body);
-            console.log(post);
+            var datalist = qs.parse(body)['id'];
+            datalist = datalist.split(' ');
+            var picked = rand.getRandom(datalist, datalist.length);
+            output(picked, '다시뽑기', res);
         });
-        output([], 'aaa', '다시뽑기');
+    }
+    // 피드백 받기
+    else if (_url.pathname == '/feedback') {
+        var body = '';
+        req.on('data', (data)=>{body+=data});
+        req.on('end', () => {
+            var title = qs.parse(body)['title'];
+            var description = qs.parse(body)['description'];
+            fs.writeFile(`./feedback/${title}`, description, 'utf-8', (err) => {
+                res.writeHead(200);
+                res.end('Feedback Completed');
+            });
+        });
     }
     else {
         res.writeHead(404);
