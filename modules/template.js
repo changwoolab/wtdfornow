@@ -17,9 +17,11 @@ var operation = {
             <div class="container">
                 <a href="/?id=eat"><button type="button" class="btn btn-secondary">음식완전랜덤뽑기</button></a>
                 <a href="/?id=lotto"><button type="button" class="btn btn-secondary">로또번호랜덤뽑기</button></a>                
-                <p>고민되는 품목들을 열거해주세요</p>
-                <p>띄어쓰기로 각 품목들을 구분해주세요</p>
-                <p>EX) 자갈치 꼬깔콘 다이제 초코송이</p>
+                <div class="howtouse">
+                    <p>고민되는 품목들을 열거해주세요</p>
+                    <p>띄어쓰기로 각 품목들을 구분해주세요</p>
+                    <p>EX) 자갈치 꼬깔콘 다이제 초코송이</p>
+                </div>
                 <form action="/res" method="post">
                     <div class="mt-4 mx-auto search-bar input-group mb-3">
                         <input name="id" type="text" class="form-control rounded-pill" placeholder="품목 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -28,10 +30,10 @@ var operation = {
                         <button class="btn btn-primary" type="submit">${retryOrTry}!</button>
                     </div>
                 </form>
-                <br><br>
-                <h5>결과</h5>
-                <h1 class="des">${description}</h1>
-                <br><br><br><br><br><br>
+                <div class="result">
+                    <h5>결과</h5>
+                    <h1 class="des">${description}</h1>
+                </div>
                 <p>피드백 주기</p>
                 <form action="/feedback" method="post">
                     <div>
@@ -42,10 +44,10 @@ var operation = {
                     </div>
                         <input type="submit" value="제출">
                 </form>
-                </div>
                 <br><br><br><br>
                 <p>ChangWoo's First Website.</p>
-                <p>If you want to contact, please send an email to "cwyoo01@naver.com"</p>
+                <p>If you want to contact me, please send an email to "cwyoo01@naver.com"</p>
+            </div>
         </body>
         </html>
         `
