@@ -5,18 +5,19 @@ const qs = require('querystring');
 const temp = require('./modules/template.js');
 const rand = require('./modules/random.js');
 
+
 function output(list, string, res) {
-    var title = 'What is matter?';
-    var template = temp.getTemplate(title, `${list}`, string);
-    res.writeHead(200);
-    res.end(template);
+    fs.readFile('./css/style.css', 'utf-8', (err, css) => {
+        var template = temp.getTemplate(css, `${list}`, string);
+        res.writeHead(200);
+        res.end(template);
+    });
 }
 
 var app = http.createServer(function(req, res) {
     // url 가져오기
     const baseURL = 'http://' + req.headers.host + '/';
     var _url = new URL(req.url, baseURL);
-    console.log(_url);
     var queryData = _url.searchParams.get('id');
     // 메인 홈페이지 방문
     if (_url.href == baseURL) {

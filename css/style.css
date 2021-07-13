@@ -1,7 +1,6 @@
-h1 {
-    text-align: center;
+.title {
     color: black;
-}
-.titles {
-    color:black;
+    text-decoration:none;
+    text-align:center;
+    font-weight: bolder;
 }

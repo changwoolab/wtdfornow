@@ -1,5 +1,5 @@
 var operation = {
-        getTemplate: function(title, description, retryOrTry) {
+        getTemplate: function(css, description, retryOrTry) {
         return `
         <!DOCTYPE html>
         <html lang="kr">
@@ -7,10 +7,15 @@ var operation = {
             <meta charset="UTF-8">
             <title>선택장애해결기</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="/css/style.css">
+            <style>
+                ${css}
+            </style>
         </head>
         <body>
-            <a href="/"><button type="button">${title}</button></a><br>
+            <div class="title">
+                <a href="/"><h1>선택장애해결기</h1></a><br>
+            </div>
             <a href="/?id=eat"><button type="button" class="btn btn-secondary">음식완전랜덤뽑기</button></a>
             <a href="/?id=lotto"><button type="button" class="btn btn-secondary">로또번호랜덤뽑기</button></a>
             <p>고민되는 품목들을 열거해주세요</p>
