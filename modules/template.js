@@ -7,10 +7,10 @@ var operation = {
             <meta charset="UTF-8">
             <title>선택장애해결기</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <link rel="stylesheet" href="/css/style.css">
             <style>
                 ${css}
             </style>
+            
         </head>
         <body>
             <a href="/" class="title"><h1 class="title">선택장애해결기</h1></a><br>
@@ -36,17 +36,20 @@ var operation = {
                 </div>
                 <p>피드백 주기</p>
                 <form action="/feedback" method="post">
-                    <div>
-                        <input type="text" name="title" placeholder="피드백 제목">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+                        <input type="text" name="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
-                    <div>
-                        <textarea name="description" placeholder="피드백 내용"></textarea>
+                    <div class="form-floating marginbottom">
+                        <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Comments</label>
                     </div>
-                        <input type="submit" value="제출">
+                    <button type="submit" class="btn btn-outline-primary">제출</button>
                 </form>
-                <br><br><br><br>
-                <p>ChangWoo's First Website.</p>
-                <p>If you want to contact me, please send an email to "cwyoo01@naver.com"</p>
+                <div class="lastline">
+                    <p>ChangWoo's First Website.</p>
+                    <p>If you want to contact me, please send an email to "cwyoo01@naver.com"</p>
+                </div>
             </div>
         </body>
         </html>

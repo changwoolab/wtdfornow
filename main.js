@@ -6,6 +6,7 @@ const temp = require('./modules/template.js');
 const rand = require('./modules/random.js');
 
 
+
 function output(list, string, res) {
     fs.readFile('./css/style.css', 'utf-8', (err, css) => {
         var template = temp.getTemplate(css, `${list}`, string);
@@ -55,12 +56,14 @@ var app = http.createServer(function(req, res) {
     else if (_url.pathname == '/feedback') {
         var body = '';
         req.on('data', (data)=>{body+=data});
+        console.log(body);
         req.on('end', () => {
             var title = qs.parse(body)['title'];
             var description = qs.parse(body)['description'];
             fs.writeFile(`./feedback/${title}`, description, 'utf-8', (err) => {
                 res.writeHead(200);
-                res.end('Feedback Completed');
+                res.write(`<script> alert('Feedback Completed');
+                window.location.href="${baseURL}"; </script>`);
             });
         });
     }
